@@ -5,8 +5,8 @@ body {
     background: url('https://media0.giphy.com/media/jaOXKCxtBPLieRLI0c/200w.gif?cid=6c09b952wjgxrop0pqh1o3s91vcl3u06enqx16w87iyi27nc&ep=v1_gifs_search&rid=200w.gif&ct=g')
         no-repeat center center fixed;
     background-size: cover;
-    cursor: none; /* Hide default cursor */
-    overflow: hidden; /* Prevent scrolling issues with particles */
+    overflow: hidden;
+    cursor: none; /* Hides default cursor */
 }
 
 /* Loading Screen */
@@ -34,8 +34,8 @@ body {
 .container {
     text-align: center;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 255, 0.5);
     width: 80%;
@@ -44,9 +44,13 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
-h1 {
+h1.title {
     color: white;
-    text-shadow: 0 0 10px blue;
+    text-shadow: 0 0 15px blue;
+}
+
+p.description {
+    color: white;
 }
 
 /* Buttons */
@@ -54,7 +58,7 @@ h1 {
     margin-top: 20px;
     padding: 10px 20px;
     color: white;
-    background: rgba(0, 0, 255, 0.7);
+    background: rgba(0, 0, 255, 0.8);
     border: none;
     border-radius: 5px;
     cursor: pointer;
