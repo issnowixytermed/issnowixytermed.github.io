@@ -1,116 +1,138 @@
-/* General Styling */
+/* Global Styles */
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: url('https://media0.giphy.com/media/jaOXKCxtBPLieRLI0c/200w.gif?cid=6c09b952wjgxrop0pqh1o3s91vcl3u06enqx16w87iyi27nc&ep=v1_gifs_search&rid=200w.gif&ct=g') 
+    font-family: Arial, sans-serif;
+    background: url('https://media0.giphy.com/media/jaOXKCxtBPLieRLI0c/200w.gif?cid=6c09b952wjgxrop0pqh1o3s91vcl3u06enqx16w87iyi27nc&ep=v1_gifs_search&rid=200w.gif&ct=g')
         no-repeat center center fixed;
     background-size: cover;
-    color: white;
+    cursor: none; /* Hide default cursor */
+    overflow: hidden; /* Prevent scrolling issues with particles */
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    z-index: 1000;
 }
 
-/* Glass Effect Container */
+.loading-text {
+    color: white;
+    font-size: 2rem;
+    text-shadow: 0 0 10px blue;
+    animation: pulseGlow 1.5s infinite;
+}
+
+/* Container */
 .container {
     text-align: center;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1); /* Light glass effect */
-    backdrop-filter: blur(15px); /* Blurring effect */
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    width: 90%;
-    max-width: 400px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.5);
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
     animation: fadeIn 1s ease-in-out;
 }
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.username {
-    font-weight: bold;
-    color: #4caf50;
-}
-
-/* Status Div */
-.status {
-    padding: 15px;
-    margin: 20px auto;
-    width: 90%;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    animation: slideIn 1s ease-out;
-}
-
-.status.active {
-    background-color: rgba(40, 167, 69, 0.8);
     color: white;
+    text-shadow: 0 0 10px blue;
 }
 
-.status.terminated {
-    background-color: rgba(220, 53, 69, 0.8);
-    color: white;
-}
-
-/* Notes */
-.note, .custom-note {
-    margin-top: 20px;
-    font-size: 1rem;
-    color: #ffc107;
-    opacity: 0.9;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.custom-note {
-    margin-top: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 8px;
-    display: none;
-}
-
-/* Button Styling */
+/* Buttons */
 .btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
+    margin-top: 20px;
     padding: 10px 20px;
-    font-size: 1rem;
+    color: white;
+    background: rgba(0, 0, 255, 0.7);
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    box-shadow: 0 0 10px blue;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px blue;
+}
+
+/* Status Box */
+.status {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px blue;
+}
+
+.status.terminated {
+    border: 2px solid rgba(255, 0, 0, 0.5);
+}
+
+.status.active {
+    border: 2px solid rgba(0, 255, 0, 0.5);
+}
+
+/* Note */
+.note {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: white;
 }
 
 /* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
+@keyframes pulseGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px blue, 0 0 20px blue;
     }
-    to {
-        opacity: 1;
-        transform: scale(1);
+    50% {
+        text-shadow: 0 0 20px blue, 0 0 40px blue;
     }
 }
 
-@keyframes slideIn {
+@keyframes fadeIn {
     from {
-        transform: translateY(-50px);
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cursor Particles */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: blue;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFade 1s ease-in-out;
+}
+
+@keyframes particleFade {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.5);
     }
 }
