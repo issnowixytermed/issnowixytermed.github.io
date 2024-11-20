@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Account Status</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Discord Account Status Checker</h1>
+        <p>Checking account status for: <span class="username">snowixy</span></p>
+
+        <div id="status" class="status terminated">
+            <p>Account is Terminated</p>
+        </div>
+
+        <button id="discordProfile" class="btn">Go to Discord Profile</button>
+
+        <div id="note" class="note">
+            <p><strong>Note:</strong> This status isn't accurate, so updating may take up to 24 hours.</p>
+        </div>
+
+        <div id="customNote" class="custom-note">
+            <p>snowixy GOT TERMED! THE NEW ACCOUNT IS <strong>altixy</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Mock Configuration
+        const isTermed = true; // Change to false for "Active" status
+        const showNote = true; // Toggle custom note visibility
+        const userId = "535823608258363424"; // Discord User ID
+
+        // Elements
+        const statusDiv = document.getElementById('status');
+        const noteDiv = document.getElementById('note');
+        const customNoteDiv = document.getElementById('customNote');
+        const discordProfileButton = document.getElementById('discordProfile');
+
+        // Update status
+        if (!isTermed) {
+            statusDiv.innerHTML = '<p>Account is Active</p>';
+            statusDiv.classList.remove('terminated');
+            statusDiv.classList.add('active');
+        }
+
+        // Toggle custom note visibility
+        customNoteDiv.style.display = showNote ? 'block' : 'none';
+
+        // Redirect to Discord profile
+        discordProfileButton.addEventListener('click', () => {
+            window.location.href = `https://discord.com/users/${userId}`;
+        });
+    </script>
+</body>
+</html>
