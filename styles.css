@@ -3,7 +3,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: #1f1f2e;
+    background: url('https://media0.giphy.com/media/jaOXKCxtBPLieRLI0c/200w.gif?cid=6c09b952wjgxrop0pqh1o3s91vcl3u06enqx16w87iyi27nc&ep=v1_gifs_search&rid=200w.gif&ct=g') 
+        no-repeat center center fixed;
+    background-size: cover;
     color: white;
     display: flex;
     justify-content: center;
@@ -12,12 +14,16 @@ body {
     overflow: hidden;
 }
 
+/* Glass Effect Container */
 .container {
     text-align: center;
-    background: #2a2a3b;
     padding: 30px;
+    background: rgba(255, 255, 255, 0.1); /* Light glass effect */
+    backdrop-filter: blur(15px); /* Blurring effect */
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -31,25 +37,27 @@ h1 {
     color: #4caf50;
 }
 
+/* Status Div */
 .status {
     padding: 15px;
     margin: 20px auto;
-    width: 80%;
+    width: 90%;
     border-radius: 10px;
     font-size: 1.2rem;
     animation: slideIn 1s ease-out;
 }
 
 .status.active {
-    background-color: #4caf50;
+    background-color: rgba(40, 167, 69, 0.8);
     color: white;
 }
 
 .status.terminated {
-    background-color: #f44336;
+    background-color: rgba(220, 53, 69, 0.8);
     color: white;
 }
 
+/* Notes */
 .note, .custom-note {
     margin-top: 20px;
     font-size: 1rem;
@@ -60,7 +68,7 @@ h1 {
 
 .custom-note {
     margin-top: 10px;
-    background: #333;
+    background: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 8px;
     display: none;
@@ -76,11 +84,12 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 /* Animations */
