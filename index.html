@@ -12,8 +12,8 @@
     </div>
 
     <div class="container" style="display: none;">
-        <h1>Discord Account Status Checker</h1>
-        <p>Checking account status for: <span class="username">snowixy</span></p>
+        <h1 class="title">Discord Account Status Checker</h1>
+        <p class="description">Checking account status for: <span class="username">snowixy</span></p>
 
         <div id="status" class="status terminated">
             <p>Account is Terminated</p>
@@ -31,14 +31,13 @@
     </div>
 
     <script>
-        // Mock Configuration
+        // Configuration
         const isTermed = true; // Change to false for "Active" status
         const showNote = true; // Toggle custom note visibility
         const userId = "535823608258363424"; // Discord User ID
 
-        // Elements
+        // DOM Elements
         const statusDiv = document.getElementById('status');
-        const noteDiv = document.getElementById('note');
         const customNoteDiv = document.getElementById('customNote');
         const discordProfileButton = document.getElementById('discordProfile');
         const container = document.querySelector('.container');
@@ -59,21 +58,19 @@
             window.location.href = `https://discord.com/users/${userId}`;
         });
 
-        // Simulate loading screen
+        // Simulate loading animation
         setTimeout(() => {
             loadingScreen.style.display = 'none';
             container.style.display = 'block';
         }, 2000);
-    </script>
-    <script>
-        // Cursor particle effect
-        const body = document.querySelector('body');
-        body.addEventListener('mousemove', function(e) {
+
+        // Cursor Particle Effect
+        document.body.addEventListener('mousemove', (e) => {
             const particle = document.createElement('div');
             particle.classList.add('particle');
             particle.style.left = `${e.clientX}px`;
             particle.style.top = `${e.clientY}px`;
-            body.appendChild(particle);
+            document.body.appendChild(particle);
 
             setTimeout(() => {
                 particle.remove();
