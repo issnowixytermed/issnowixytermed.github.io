@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div id="loading-screen">
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <div class="container" style="display: none;">
         <h1>Discord Account Status Checker</h1>
         <p>Checking account status for: <span class="username">snowixy</span></p>
 
@@ -37,6 +41,8 @@
         const noteDiv = document.getElementById('note');
         const customNoteDiv = document.getElementById('customNote');
         const discordProfileButton = document.getElementById('discordProfile');
+        const container = document.querySelector('.container');
+        const loadingScreen = document.getElementById('loading-screen');
 
         // Update status
         if (!isTermed) {
@@ -51,6 +57,27 @@
         // Redirect to Discord profile
         discordProfileButton.addEventListener('click', () => {
             window.location.href = `https://discord.com/users/${userId}`;
+        });
+
+        // Simulate loading screen
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            container.style.display = 'block';
+        }, 2000);
+    </script>
+    <script>
+        // Cursor particle effect
+        const body = document.querySelector('body');
+        body.addEventListener('mousemove', function(e) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${e.clientX}px`;
+            particle.style.top = `${e.clientY}px`;
+            body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
         });
     </script>
 </body>
